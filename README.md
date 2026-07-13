@@ -1,5 +1,10 @@
 # fernet-app
 
+<img width="450" height="450" alt="file_00000000736471f48ae86f32b472f149" src="https://github.com/user-attachments/assets/5aaac826-081e-46f6-a5c9-26dfc5cf8b52" />
+
+
+
+
 
 Your Secret is Safe Here is a web-based application designed to securely encrypt and decrypt text using the Fernet symmetric encryption algorithm It provides a simple and intuitive interface for generating encryption keys protecting sensitive information and recovering encrypted messages with the correct key
 
