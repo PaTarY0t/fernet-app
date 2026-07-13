@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>0x00000001</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h2>Your secret is safe here</h2>
+
+      <label>Fernet Key</label>
+      <input id="key" placeholder="Base64 Key" />
+      <button onclick="generateKey()">Generate Key</button>
+
+      <label>Message</label>
+      <textarea id="message" placeholder="Enter text..."></textarea>
+
+      <div class="buttons">
+        <button onclick="encrypt()">Encrypt</button>
+        <button onclick="decrypt()">Decrypt</button>
+      </div>
+
+      <label>Result</label>
+      <textarea id="result" placeholder="Result"></textarea>
+
+      <button onclick="copyResult()">Copy</button>
+    </div>
+
+    <script>
+      async function generateKey() {
+        let res = await fetch("/generate");
+        let data = await res.json();
+        document.getElementById("key").value = data.key;
+      }
+
+      async function encrypt() {
+        sendRequest("/encrypt");
+      }
+
+      async function decrypt() {
+        sendRequest("/decrypt");
+      }
+
+      async function sendRequest(url) {
+        let key = document.getElementById("key").value;
+        let message = document.getElementById("message").value;
+
+        let res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ key, message }),
+        });
+
+        let data = await res.json();
+        document.getElementById("result").value = data.result;
+      }
+
+      function copyResult() {
+        let text = document.getElementById("result");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+
+        /*If you want use this 
+        
+        alert("Copied to clipboard!")
+        
+        */
+      }
+    </script>
+  </body>
+</html>
