@@ -1,0 +1,61 @@
+body {
+  font-family: Arial;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  color: #555a5a;
+}
+
+input,
+textarea {
+  width: 94%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background: #424242;
+  color: white;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button {
+  width: 50%;
+}
+
+#result {
+  resize: none;
+}
+
+#message {
+  resize: none;
+}
